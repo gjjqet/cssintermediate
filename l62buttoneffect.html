@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Button Effect</title>
+        <!-- fontawesome cdn -->
+        <script src="https://kit.fontawesome.com/d2e3c8879c.js" crossorigin="anonymous"></script>       
+         <style type="text/css">
+            body{
+                height: 100vh;
+                background-color: #000;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+
+                padding: 0;
+                margin: 0;
+            }
+
+            .btn{
+                width: 300px;
+                height: 70px;
+                /* background-color: steelblue; */
+                color: #fff;
+                text-decoration: none;
+                font-size: 20px;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+
+                text-align: center;
+                line-height: 70px;
+
+                position: relative;
+
+                transition: border 0.3s;
+            }
+
+            .btn::before,.btn::after{
+                content: "";
+
+                width: 100%;
+                height: 100%;
+                border: 1px solid rgba(255,255,225,0.5);
+
+                position: absolute;
+                left: 0;
+                top: 0;
+            }
+
+            .btn:hover::before{
+                animation-name: rotateleft;
+            }
+
+            .btn:hover::after{
+                animation-name: rotateright;
+            }
+
+            .btn:hover::before,.btn:hover::after{
+
+                width: 70px;
+                border: 1px dashed rgba(255,255,255,0.5);
+
+                animation-duration: 3s;
+                animation-iteration-count: infinite;
+                animation-timing-function: linear;
+
+            }
+
+            .btn:hover{
+                border: 1px solid rgba(255,255,255,0.5);
+            }
+           
+           
+            @keyframes rotateleft {
+
+                0%{
+                    transform: rotate(0deg) ;
+                }
+
+                100%{
+                    transform: rotate(-360deg);
+                }
+               
+            }
+
+            @keyframes rotateright {
+
+                0%{
+                    transform: rotate(0turn) ;
+                }
+
+                100%{
+                    transform: rotate(1turn);
+                }
+
+            }
+
+
+            span{
+                position: absolute;
+                left: 30px;
+                top: 0;
+
+                transform: scale(0);
+
+                transition: all 0.3s ease-in;
+            }
+
+            .btn:hover span{
+                transform: scale(1);
+                opacity: 0.6;
+
+                animation: rotating 2s infinite linear;
+            }
+
+            @keyframes rotating {
+                0%{
+                   transform: rotate(0turn);
+                }
+
+                50%{
+                   transform: rotate(-1turn);
+                }
+
+                100%{
+                   transform: rotate(1turn);
+                }
+            }
+
+        </style>
+    </head>
+    <body>
+        
+        <a href="#" class="btn"><span><i class="fas fa-fan"></i></span>Hover Me</a>
+        
+    </body>
+</html>
+
+
